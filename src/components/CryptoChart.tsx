@@ -1,27 +1,31 @@
-import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
+import React from "react";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+} from "recharts";
 
-interface DataPoint {
-  time: string;
-  price: number;
-}
-
-interface CryptoChartProps {
-  data: DataPoint[];
+type Props = {
   name: string;
-}
+  data: { time: string; price: number }[];
+};
 
-export default function CryptoChart({ data, name }: CryptoChartProps) {
+const CryptoChart: React.FC<Props> = ({ name, data }) => {
   return (
-    <div className="p-4 w-full sm:w-1/2 md:w-1/3 xl:w-1/4">
-      <h3 className="text-white mb-2">{name}</h3>
-      <ResponsiveContainer width="100%" height={200}>
+    <div style={{ width: "100%", height: "100%" }}>
+      <ResponsiveContainer width="100%" height="100%">
         <LineChart data={data}>
-          <XAxis dataKey="time" stroke="#ccc" />
-          <YAxis stroke="#ccc" />
+          <XAxis dataKey="time" hide />
+          <YAxis domain={["dataMin", "dataMax"]} hide />
           <Tooltip />
-          <Line type="monotone" dataKey="price" stroke="#00bcd4" strokeWidth={2} />
+          <Line type="monotone" dataKey="price" stroke="#2563eb" strokeWidth={2} dot={false} />
         </LineChart>
       </ResponsiveContainer>
     </div>
   );
-}
+};
+
+export default CryptoChart;

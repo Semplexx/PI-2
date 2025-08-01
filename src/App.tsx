@@ -108,26 +108,25 @@ function App() {
             <p>No data available</p>
           ) : (
             marketData[activeTab].map((entry) => (
-              <>
-                <div key={entry.name} style={{ border: "1px solid #ccc", borderRadius: "6px", padding: "1rem" }}>
-                  <strong>{entry.name}</strong>
-                  <p>
-                    {entry.value.toLocaleString()} {entry.currency}{" "}
-                    <span style={{ color: entry.change < 0 ? "red" : "green" }}>
-                      {entry.change > 0 ? "+" : ""}
-                      {entry.change}%
-                    </span>
-                  </p>
+              <div key={entry.name} style={{ border: "1px solid #ccc", borderRadius: "6px", padding: "1rem" }}>
+                <strong>{entry.name}</strong>
+                <p>
+                  {entry.value.toLocaleString()} {entry.currency}{" "}
+                  <span style={{ color: entry.change < 0 ? "red" : "green" }}>
+                    {entry.change > 0 ? "+" : ""}
+                    {entry.change}%
+                  </span>
+                </p>
+
+                {/* 🎯 Gráfico pequeño justo debajo del token */}
+                <div style={{ width: "100%", height: "100px", marginTop: "1rem" }}>
+                  <CryptoChart name={entry.name} data={sampleChartData} />
                 </div>
-                <div className="flex flex-wrap justify-center mt-8">
-                  {uniqueTokens.map((token, index) => (
-                  <CryptoChart key={index} name={token} data={sampleChartData} />
-                  ))}
-                </div>
-              </>
+              </div>
             ))
           )}
         </div>
+
       </section>
 
       {/* Footer */}
