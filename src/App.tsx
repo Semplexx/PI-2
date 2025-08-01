@@ -44,7 +44,7 @@ function App() {
     <div style={{ fontFamily: "sans-serif" }}>
       {/* Navbar */}
       <header style={{ background: "#000", color: "#fff", padding: "1rem", display: "flex", justifyContent: "space-between" }}>
-        <div><strong>TradingView</strong></div>
+        <div><strong>StarkAdvisor</strong></div>
         <nav style={{ display: "flex", gap: "1rem" }}>
           <input type="text" placeholder="Search (Ctrl+K)" />
           <a href="#">Products</a>
@@ -73,12 +73,12 @@ function App() {
         padding: "2rem"
       }}>
         <div>
-          <h1 style={{ fontSize: "3rem", fontWeight: "bold" }}>CryptoPatito.</h1>
+          <h1 style={{ fontSize: "3rem", fontWeight: "bold" }}>StarkAdvisor.</h1>
           <p style={{ fontSize: "1.2rem", marginTop: "1rem" }}>The best trades require research, then commitment.</p>
           <button style={{ marginTop: "1.5rem", padding: "0.75rem 1.5rem", backgroundColor: "#2563eb", color: "white", border: "none", borderRadius: "6px" }}>
             Get started for free
           </button>
-          <p style={{ marginTop: "0.5rem", fontSize: "0.9rem" }}>$0 forever, no credit card needed</p>
+          <p style={{ marginTop: "0.5rem", fontSize: "0.9rem" }}></p>
         </div>
       </section>
 
@@ -133,7 +133,7 @@ function App() {
       <footer style={{ backgroundColor: "#1b1b1b", color: "#fff", padding: "2rem", display: "flex", justifyContent: "space-between", flexWrap: "wrap" }}>
         <div>
           <h3 style={{ fontSize: "1.2rem", fontWeight: "bold" }}>TradingView</h3>
-          <p>CriptoPatito.</p>
+          <p>© 2025 StarkAdvisor.</p>
         </div>
         <div style={{ display: "flex", gap: "4rem" }}>
           <div>
@@ -144,7 +144,7 @@ function App() {
             </ul>
           </div>
           <div>
-            <h4 style={{ fontWeight: "bold" }}>Community</h4>
+            <h4 style={{ fontWeight: "bold" }}>Contact Info</h4>
             <ul style={{ listStyle: "none", padding: 0 }}>
               <li><a href="#" style={{ color: "#ccc" }}>Social network</a></li>
               <li><a href="#" style={{ color: "#ccc" }}>Moderators</a></li>
