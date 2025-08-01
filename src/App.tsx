@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import LineChartMoneda from "./components/LineChartMoneda";
+import CryptoChart from "./components/CryptoChart";
 
 type TabType = "Indices" | "Stocks" | "Crypto" | "Futures" | "Forex";
 
@@ -27,6 +27,18 @@ const marketData: Record<TabType, MarketEntry[]> = {
 
 function App() {
   const [activeTab, setActiveTab] = useState<TabType>("Indices");
+
+  const sampleChartData = [
+  { time: '10:00', price: 100 },
+  { time: '10:05', price: 102 },
+  { time: '10:10', price: 101 },
+  { time: '10:15', price: 103 },
+  { time: '10:20', price: 105 },
+  ];
+
+  const uniqueTokens = Array.from(
+  new Set(marketData[activeTab].map((item) => item.name.split("/")[0]))
+  );
 
   return (
     <div style={{ fontFamily: "sans-serif" }}>
@@ -70,9 +82,6 @@ function App() {
         </div>
       </section>
 
-      {/* Line Chart */}
-      <LineChartMoneda />
-
       {/* Market Summary */}
       <section style={{ backgroundColor: "#f8f9fa", color: "#000", padding: "2rem" }}>
         <h2 style={{ fontSize: "1.5rem", marginBottom: "1rem" }}>Market summary</h2>
@@ -99,16 +108,23 @@ function App() {
             <p>No data available</p>
           ) : (
             marketData[activeTab].map((entry) => (
-              <div key={entry.name} style={{ border: "1px solid #ccc", borderRadius: "6px", padding: "1rem" }}>
-                <strong>{entry.name}</strong>
-                <p>
-                  {entry.value.toLocaleString()} {entry.currency}{" "}
-                  <span style={{ color: entry.change < 0 ? "red" : "green" }}>
-                    {entry.change > 0 ? "+" : ""}
-                    {entry.change}%
-                  </span>
-                </p>
-              </div>
+              <>
+                <div key={entry.name} style={{ border: "1px solid #ccc", borderRadius: "6px", padding: "1rem" }}>
+                  <strong>{entry.name}</strong>
+                  <p>
+                    {entry.value.toLocaleString()} {entry.currency}{" "}
+                    <span style={{ color: entry.change < 0 ? "red" : "green" }}>
+                      {entry.change > 0 ? "+" : ""}
+                      {entry.change}%
+                    </span>
+                  </p>
+                </div>
+                <div className="flex flex-wrap justify-center mt-8">
+                  {uniqueTokens.map((token, index) => (
+                  <CryptoChart key={index} name={token} data={sampleChartData} />
+                  ))}
+                </div>
+              </>
             ))
           )}
         </div>
