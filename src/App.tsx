@@ -46,7 +46,7 @@ function App() {
       <header style={{ background: "#000", color: "#fff", padding: "1rem", display: "flex", justifyContent: "space-between" }}>
         <div><strong>StarkAdvisor</strong></div>
         <nav style={{ display: "flex", gap: "1rem" }}>
-          <input type="text" placeholder="Search (Ctrl+K)" />
+          <input type="text" placeholder="Search " />
           <a href="#">Products</a>
           <a href="#">Community</a>
           <a href="#">Markets</a>
